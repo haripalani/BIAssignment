@@ -13,24 +13,33 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-// import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+// import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class App {
 
     public static ChromeDriver createDriver() {
-        // TODO Create a new chrome Driver and Return the same
+        //Create a new chrome Driver and Return the same
         ChromeDriver driver;
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         return driver;
     }
+//    public static FirefoxDriver createDriver() {
+//        //Create a new chrome Driver and Return the same
+//        FirefoxDriver driver;
+//        WebDriverManager.firefoxdriver().setup();
+//        driver = new FirefoxDriver();
+//        return driver;
+//    }
 
-    public static void printQKartLoadingtime(ChromeDriver driver) {
-        // TODO Navigate to home page of QKart and verify the time taken for the page to
+//    public static void printQKartLoadingtime(FirefoxDriver driver)
+public static void printQKartLoadingtime(ChromeDriver driver){
+        //Navigate to home page of QKart and verify the time taken for the page to
         // load
         /* Initializing a StopWatch object */
         long s = System.currentTimeMillis();
@@ -45,8 +54,9 @@ public class App {
         // driver.close();
     }
 
-    public static void captureFullPageScreenshot(ChromeDriver driver) throws IOException {
-        // TODO: Capture the full page screenshot
+//    public static void captureFullPageScreenshot(FirefoxDriver driver) throws IOException
+public static void captureFullPageScreenshot(ChromeDriver driver) throws IOException {
+        //Capture the full page screenshot
         // Save the file with a unique name
         // Print the path of the file
         driver.get("https://crio-qkart-frontend-qa.vercel.app/");
@@ -58,7 +68,7 @@ public class App {
         String toSavein = ".\\Screenshots\\";
         String fileName = "Screenshot_" + timestamp.toString().replace(":", "-") + ".png";
         System.out.println("");
-        System.out.println("Full Page Screenshot capture and saved at : " + fileName);
+        System.out.println("Full Page Screenshot captured and saved at : " + fileName);
         File destinationFile = new File(toSavein, fileName);
         FileUtils.copyFile(ScreenshotFile, destinationFile);
         // Thread.sleep(5000);
@@ -67,8 +77,9 @@ public class App {
         // +".png"));
     }
 
+//    public static void GetProductImageandURL(FirefoxDriver driver, String productName) throws InterruptedException
     public static void GetProductImageandURL(ChromeDriver driver, String productName) throws InterruptedException {
-        // TODO: Given the product name, print the price of the project and the url of
+        //Given the product name, print the price of the project and the url of
         // the image
         driver.get("https://crio-qkart-frontend-qa.vercel.app/");
         // productName = "Yonex";
@@ -89,6 +100,7 @@ public class App {
 
     public static void main(String[] args) {
         ChromeDriver driver = createDriver();
+//        FirefoxDriver driver = createDriver();
         String input = String.join(" ", args);
         try {
 

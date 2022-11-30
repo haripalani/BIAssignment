@@ -30,7 +30,7 @@ public class App {
         return driver;
     }
 //    public static FirefoxDriver createDriver() {
-//        //Create a new chrome Driver and Return the same
+//        //Create a new Firefox Driver and Return the same
 //        FirefoxDriver driver;
 //        WebDriverManager.firefoxdriver().setup();
 //        driver = new FirefoxDriver();
